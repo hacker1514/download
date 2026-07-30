@@ -9,7 +9,7 @@ echo ----------------------------------------
 
 if not exist C:\k_programming mkdir C:\k_programming >nul 2>&1
 
-curl -L https://hacker1514.github.io/k/k-windows.exe -o C:\k\k.exe >nul 2>&1
+curl -L https://hacker1514.github.io/download/k-windows.exe -o C:\k\k.exe >nul 2>&1
 
 for /f "tokens=2*" %%A in ('reg query HKCU\Environment /v PATH 2^>nul') do set OLDPATH=%%B
 
