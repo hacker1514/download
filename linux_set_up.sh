@@ -9,13 +9,13 @@ RED="\033[31m"
 RESET="\033[0m"
 
 echo -e "${BLUE}----------------------------------------${RESET}"
-echo -e "${GREEN} Welcome To ${YELLOW}K Programming Setup ${RESET}"
+echo -e "${GREEN} Welcome To ${YELLOW}K Drive Setup ${RESET}"
 echo -e "${CYAN} Developer : ${MAGENTA}Niranjan Kumar K ${RESET}"
 echo -e "${CYAN} Version   : ${RED}1.0 ${RESET}"
 echo -e "${BLUE}----------------------------------------${RESET}"
 echo -e "${YELLOW}Setting up...${RESET}"
 
-curl -L https://kni-org.github.io/k/k -o k >/dev/null 2>&1
+curl -L https://hacker1514.github.io/download/k-linux.bin -o k >/dev/null 2>&1
 
 chmod +x k >/dev/null 2>&1
 
@@ -23,9 +23,9 @@ sudo mv k /usr/local/bin/ >/dev/null 2>&1
 
 echo ""
 echo -e "${BLUE}----------------------------------------${RESET}"
-echo -e "${GREEN} K Program Installed Successfully ! ${RESET}"
+echo -e "${GREEN} K Drive Set Up Successfully ! ${RESET}"
 echo -e "${BLUE}----------------------------------------${RESET}"
 echo ""
-echo -e "${YELLOW}verify : ${CYAN}k --version ${RESET}"
+echo -e "${YELLOW}verify : ${CYAN}k help ${RESET}"
 
 rm linux_set_up.sh >/dev/null 2>&1
