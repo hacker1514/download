@@ -1,0 +1,2 @@
+--> git pre requirement .
+--> for creating by own with pyinstaller from python required (pip install pyinstaller)
