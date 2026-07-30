@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="K-Drive - Niranjan Kumar K.">
+  <meta name="keywords" content="K-Drive, GitHub, virtual drive, CLI, Python, Git, open source, developer tools">
+  <meta name="author" content="Niranjan Kumar K">
+  <meta name="theme-color" content="#6366f1">
+  <meta property="og:title" content="K-Drive — Niranjan ">
+  <meta property="og:description" content="Connect any GitHub repository as a local virtual workspace with automatic Git synchronization.">
+  <meta property="og:type" content="website">
+  <title>K-Drive — Niranjan Kuamr K</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loader" class="loader" aria-hidden="true">
+    <div class="loader__content">
+      <img src="assets/images/logo.svg" alt="" class="loader__logo" width="64" height="64">
+      <div class="loader__spinner"></div>
+      <p class="loader__text">Loading K-Drive</p>
+    </div>
+  </div>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress__bar" id="scrollProgress"></div>
+  </div>
+
+  <!-- Navigation -->
+  <header class="header" id="header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a href="#hero" class="nav__brand">
+        <img src="assets/images/logo.svg" alt="K-Drive logo" width="36" height="36">
+        <span>K-Drive</span>
+      </a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="#about" class="nav__link">About</a></li>
+        <li><a href="#features" class="nav__link">Features</a></li>
+        <li><a href="#how-it-works" class="nav__link">How It Works</a></li>
+        <li><a href="#platforms" class="nav__link">Platforms</a></li>
+        <li><a href="#installation" class="nav__link">Install</a></li>
+        <li><a href="#commands" class="nav__link">Commands</a></li>
+        <li><a href="#developer" class="nav__link">Developer</a></li>
+        <li><a href="#contact" class="nav__link">Contact</a></li>
+        <li>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+            <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__orb hero__orb--1"></div>
+        <div class="hero__orb hero__orb--2"></div>
+        <div class="hero__orb hero__orb--3"></div>
+        <div class="hero__grid"></div>
+      </div>
+      <div class="container hero__content">
+        <div class="hero__badge reveal">Open Source · Cross-Platform · By Niranjan Kumar K</div>
+        <img src="assets/images/logo.svg" alt="K-Drive" class="hero__logo reveal" width="80" height="80">
+        <h1 class="hero__title reveal">K-Drive</h1>
+        <p class="hero__tagline reveal">Your GitHub Repository as a Virtual Drive.</p>
+        <p class="hero__desc reveal">
+          A lightweight command-line utility that connects your GitHub repository as a local virtual workspace —
+          edit files naturally, commit changes, and push back seamlessly.
+        </p>
+        <div class="hero__actions reveal">
+          <a href="#platforms" class="btn btn--primary ripple">Download</a>
+          <a href="https://github.com/hacker1514/download" class="btn btn--secondary ripple" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="#installation" class="btn btn--ghost ripple">Documentation</a>
+          <a href="#contact" class="btn btn--ghost ripple">Contact</a>
+        </div>
+        <div class="hero__stats reveal">
+          <div class="hero__stat"><span>4</span> Platforms</div>
+          <div class="hero__stat"><span>5</span> Commands</div>
+          <div class="hero__stat"><span>100%</span> Open Source</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__label">About</span>
+          <h2 class="section__title">What is K-Drive?</h2>
+          <p class="section__subtitle">
+            Transform any GitHub repository into a seamless local workspace with automatic synchronization.
+          </p>
+        </div>
+        <div class="about__grid">
+          <div class="about__content reveal">
+            <p>
+              <strong>K-Drive</strong> is a command-line utility that allows users to connect a GitHub repository
+              as a local workspace. Instead of managing complex Git workflows manually, K-Drive provides a
+              virtual drive experience — mount your repository, work on files with your favorite tools, and
+              let K-Drive handle synchronization in the background.
+            </p>
+            <ul class="about__highlights">
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                GitHub repository cloning
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                Local virtual workspace
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                Automatic Git synchronization
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                Lightweight &amp; open source
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                Cross-platform support
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                Built with Python · Uses Git internally
+              </li>
+            </ul>
+          </div>
+          <div class="flow-diagram glass reveal">
+            <h3 class="flow-diagram__title">Workflow Overview</h3>
+            <div class="flow-diagram__steps">
+              <div class="flow-step"><span class="flow-step__icon">📦</span> GitHub Repository</div>
+              <div class="flow-arrow animated-arrow">↓</div>
+              <div class="flow-step"><span class="flow-step__icon">⬇</span> Clone</div>
+              <div class="flow-arrow animated-arrow">↓</div>
+              <div class="flow-step"><span class="flow-step__icon">💻</span> Local Workspace</div>
+              <div class="flow-arrow animated-arrow">↓</div>
+              <div class="flow-step"><span class="flow-step__icon">✏️</span> User edits files</div>
+              <div class="flow-arrow animated-arrow">↓</div>
+              <div class="flow-step"><span class="flow-step__icon">📝</span> Commit</div>
+              <div class="flow-arrow animated-arrow">↓</div>
+              <div class="flow-step"><span class="flow-step__icon">🚀</span> Push back to GitHub</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section section--alt" id="features">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__label">Features</span>
+          <h2 class="section__title">Built for Developers</h2>
+          <p class="section__subtitle">Everything you need to turn GitHub repos into productive workspaces.</p>
+        </div>
+        <div class="features__grid">
+          <article class="feature-card glass reveal">
+            <div class="feature-card__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+            <h3>Virtual Workspace</h3>
+            <p>Mount repositories as local drives for intuitive file management.</p>
+          </article>
+          <article class="feature-card glass reveal">
+            <div class="feature-card__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></div>
+            <h3>GitHub Integration</h3>
+            <p>Seamlessly connect to public and private GitHub repositories.</p>
+          </article>
+          <article class="feature-card glass reveal">
+            <div class="feature-card__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
+            <h3>Fast Synchronization</h3>
+            <p>Automatic sync keeps your local workspace up to date.</p>
+          </article>
+          <article class="feature-card glass reveal">
+            <div class="feature-card__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+            <h3>Cross Platform</h3>
+            <p>Runs on Windows, Linux, macOS, and Termux (Android).</p>
+          </article>
+          <article class="feature-card glass reveal">
+            <div class="feature-card__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></div>
+            <h3>Simple CLI</h3>
+            <p>Minimal commands for maximum productivity.</p>
+          </article>
+          <article class="feature-card glass reveal">
+            <div class="feature-card__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+            <h3>Open Source</h3>
+            <p>Free, transparent, and community-driven development.</p>
+          </article>
+          <article class="feature-card glass reveal">
+            <div class="feature-card__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+            <h3>Lightweight</h3>
+            <p>Minimal footprint with no unnecessary dependencies.</p>
+          </article>
+          <article class="feature-card glass reveal">
+            <div class="feature-card__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+            <h3>Automatic Updates</h3>
+            <p>Stay current with the latest features and fixes.</p>
+          </article>
+          <article class="feature-card glass reveal">
+            <div class="feature-card__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+            <h3>Easy Installation</h3>
+            <p>Get started in seconds with simple setup commands.</p>
+          </article>
+          <article class="feature-card glass reveal">
+            <div class="feature-card__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+            <h3>Secure Repository Management</h3>
+            <p>Safe handling of credentials and repository access.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section" id="how-it-works">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__label">Workflow</span>
+          <h2 class="section__title">How It Works</h2>
+          <p class="section__subtitle">From repository to virtual drive in seven simple steps.</p>
+        </div>
+        <div class="workflow">
+          <div class="workflow__step reveal">
+            <div class="workflow__number">1</div>
+            <div class="workflow__content glass">
+              <h3>Create Repository</h3>
+              <p>Set up a GitHub repository for your project.</p>
+            </div>
+          </div>
+          <div class="workflow__connector animated-arrow">→</div>
+          <div class="workflow__step reveal">
+            <div class="workflow__number">2</div>
+            <div class="workflow__content glass">
+              <h3>Start K-Drive</h3>
+              <p>Run <code>k start</code> to initialize the utility.</p>
+            </div>
+          </div>
+          <div class="workflow__connector animated-arrow">→</div>
+          <div class="workflow__step reveal">
+            <div class="workflow__number">3</div>
+            <div class="workflow__content glass">
+              <h3>Clone Repository</h3>
+              <p>K-Drive clones your repo to a local workspace.</p>
+            </div>
+          </div>
+          <div class="workflow__connector animated-arrow">→</div>
+          <div class="workflow__step reveal">
+            <div class="workflow__number">4</div>
+            <div class="workflow__content glass">
+              <h3>Work on Files</h3>
+              <p>Edit files using any application you prefer.</p>
+            </div>
+          </div>
+          <div class="workflow__connector animated-arrow">→</div>
+          <div class="workflow__step reveal">
+            <div class="workflow__number">5</div>
+            <div class="workflow__content glass">
+              <h3>Commit Changes</h3>
+              <p>Stage and commit your work locally.</p>
+            </div>
+          </div>
+          <div class="workflow__connector animated-arrow">→</div>
+          <div class="workflow__step reveal">
+            <div class="workflow__number">6</div>
+            <div class="workflow__content glass">
+              <h3>Push to GitHub</h3>
+              <p>Run <code>k update</code> to sync changes upstream.</p>
+            </div>
+          </div>
+          <div class="workflow__connector animated-arrow">→</div>
+          <div class="workflow__step reveal">
+            <div class="workflow__number">7</div>
+            <div class="workflow__content glass">
+              <h3>Access Anywhere</h3>
+              <p>Your changes are available on any device.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Supported Platforms -->
+    <section class="section section--alt" id="platforms">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__label">Platforms</span>
+          <h2 class="section__title">Supported Platforms</h2>
+          <p class="section__subtitle">K-Drive runs wherever you develop.</p>
+        </div>
+        <div class="platforms__grid">
+          <article class="platform-card glass reveal">
+            <div class="platform-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5L10.5 4v15.11L3 18.5V5.5zm9 13.61L21 18.5V5.5L12 4v14.61z"/></svg>
+            </div>
+            <h3>Windows</h3>
+            <p>Windows 10/11 with native drive mapping via Subst.</p>
+            <a href="#installation" class="btn btn--primary btn--sm ripple">Download</a>
+          </article>
+          <article class="platform-card glass reveal">
+            <div class="platform-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.5 2c-5.5 0-10 4.5-10 10s4.5 10 10 10 10-4.5 10-10-4.5-10-10-10zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"/><circle cx="12.5" cy="12" r="3"/></svg>
+            </div>
+            <h3>Linux</h3>
+            <p>All major distributions with Git support.</p>
+            <a href="#installation" class="btn btn--primary btn--sm ripple">Download</a>
+          </article>
+          <article class="platform-card glass reveal">
+            <div class="platform-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            </div>
+            <h3>macOS</h3>
+            <p>Intel and Apple Silicon Macs supported.</p>
+            <a href="#installation" class="btn btn--primary btn--sm ripple">Download</a>
+          </article>
+          <article class="platform-card glass reveal">
+            <div class="platform-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17 1H7c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm-5 20c-.83 0-1.5-.67-1.5-1.5S11.17 18 12 18s1.5.67 1.5 1.5S12.83 21 12 21zm5-4H7V4h10v13z"/></svg>
+            </div>
+            <h3>Termux</h3>
+            <p>Develop on Android with Termux environment.</p>
+            <a href="#installation" class="btn btn--primary btn--sm ripple">Download</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Installation -->
+    <section class="section" id="installation">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__label">Get Started</span>
+          <h2 class="section__title">Installation</h2>
+          <p class="section__subtitle">Choose your platform and run the commands below.</p>
+        </div>
+        <div class="install-tabs glass reveal">
+          <div class="install-tabs__nav" role="tablist">
+            <button class="install-tabs__btn active" role="tab" aria-selected="true" data-tab="windows">Windows</button>
+            <button class="install-tabs__btn" role="tab" aria-selected="false" data-tab="linux">Linux</button>
+            <button class="install-tabs__btn" role="tab" aria-selected="false" data-tab="macos">macOS</button>
+            <button class="install-tabs__btn" role="tab" aria-selected="false" data-tab="termux">Termux</button>
+          </div>
+          <div class="install-tabs__panels">
+            <div class="install-tabs__panel active" id="tab-windows" role="tabpanel">
+              <p class="install-tabs__desc">Download the Windows installer, then run:</p>
+              <div class="code-block">
+                <pre><code>curl https://hacker1514.github.io/download/win_set_up.bat > win_set_up.bat</code></pre>
+                <button class="code-block__copy ripple" data-copy="curl https://hacker1514.github.io/download/win_set_up.bat > win_set_up.bat" aria-label="Copy command">Copy</button>
+              </div>
+              <div class="code-block">
+                <pre><code>win_set_up</code></pre>
+                <button class="code-block__copy ripple" data-copy="win_set_up" aria-label="Copy command">Copy</button>
+              </div>
+            </div>
+            <div class="install-tabs__panel" id="tab-linux" role="tabpanel">
+              <p class="install-tabs__desc">Download the Linux installer, then run:</p>
+              <div class="code-block">
+                <pre><code>curl https://hacker1514.github.io/download/linux_set_up.sh > linux_set_up.sh</code></pre>
+                <button class="code-block__copy ripple" data-copy="curl https://hacker1514.github.io/download/linux_set_up.sh > linux_set_up.sh" aria-label="Copy command">Copy</button>
+              </div>
+              <div class="code-block">
+                <pre><code>chmod +x linux_set_up.sh</code></pre>
+                <button class="code-block__copy ripple" data-copy="chmod +x linux_set_up.sh" aria-label="Copy command">Copy</button>
+              </div>
+              <div class="code-block">
+                <pre><code>./linux_set_up.sh</code></pre>
+                <button class="code-block__copy ripple" data-copy="./linux_set_up.sh" aria-label="Copy command">Copy</button>
+              </div>
+            </div>
+            <div class="install-tabs__panel" id="tab-macos" role="tabpanel">
+              <p class="install-tabs__desc">Download the mac OS installer, then run:</p>
+              <div class="code-block">
+                <pre><code>curl https://hacker1514.github.io/download/mac_set_up.sh > mac_set_up.sh </code></pre>
+                <button class="code-block__copy ripple" data-copy="curl https://hacker1514.github.io/download/mac_set_up.sh > mac_set_up.sh " aria-label="Copy command">Copy</button>
+              </div>
+               <div class="code-block">
+                <pre><code>chmod +x mac_set_up.sh</code></pre>
+                <button class="code-block__copy ripple" data-copy="chmod +x mac_set_up.sh" aria-label="Copy command">Copy</button>
+              </div>
+              <div class="code-block">
+                <pre><code>./mac_set_up.sh</code></pre>
+                <button class="code-block__copy ripple" data-copy="./mac_set_up.sh" aria-label="Copy command">Copy</button>
+              </div>
+            </div>
+            <div class="install-tabs__panel" id="tab-termux" role="tabpanel">
+               <p class="install-tabs__desc">Download the Termux installer, then run:</p>
+              <div class="code-block">
+                <pre><code>curl https://hacker1514.github.io/download/termux_set_up.sh > termux_set_up.sh </code></pre>
+                <button class="code-block__copy ripple" data-copy="curl https://hacker1514.github.io/download/termux_set_up.sh > termux_set_up.sh " aria-label="Copy command">Copy</button>
+              </div>
+               <div class="code-block">
+                <pre><code>chmod +x termux_set_up.sh</code></pre>
+                <button class="code-block__copy ripple" data-copy="chmod +x termux_set_up.sh" aria-label="Copy command">Copy</button>
+              </div>
+              <div class="code-block">
+                <pre><code>./termux_set_up.sh</code></pre>
+                <button class="code-block__copy ripple" data-copy="./termux_set_up.sh" aria-label="Copy command">Copy</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Commands -->
+    <section class="section section--alt" id="commands">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__label">Reference</span>
+          <h2 class="section__title">Command Reference</h2>
+          <p class="section__subtitle">All K-Drive CLI commands at a glance.</p>
+        </div>
+        <div class="commands-search reveal">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="search" id="commandSearch" placeholder="Search commands..." aria-label="Search commands">
+        </div>
+        <div class="commands-table glass reveal">
+          <table>
+            <thead>
+              <tr>
+                <th>Command</th>
+                <th>Description</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="commandsBody">
+              <tr data-command="k start">
+                <td><code>k start</code></td>
+                <td>Start K-Drive and initialize the virtual workspace.</td>
+                <td><button class="code-block__copy btn--sm ripple" data-copy="k start">Copy</button></td>
+              </tr>
+              <tr data-command="k activate">
+                <td><code>k activate</code></td>
+                <td>Open the project workspace and mount the virtual drive.</td>
+                <td><button class="code-block__copy btn--sm ripple" data-copy="k activate">Copy</button></td>
+              </tr>
+              <tr data-command="k update">
+                <td><code>k update</code></td>
+                <td>Push local changes to GitHub.</td>
+                <td><button class="code-block__copy btn--sm ripple" data-copy="k update">Copy</button></td>
+              </tr>
+              <tr data-command="k end">
+                <td><code>k end</code></td>
+                <td>Disconnect K-Drive and unmount the workspace.</td>
+                <td><button class="code-block__copy btn--sm ripple" data-copy="k end">Copy</button></td>
+              </tr>
+              <tr data-command="k help">
+                <td><code>k help</code></td>
+                <td>Display help information and available commands.</td>
+                <td><button class="code-block__copy btn--sm ripple" data-copy="k help">Copy</button></td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="commands-empty" id="commandsEmpty" hidden>No commands match your search.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="section" id="screenshots">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__label">Gallery</span>
+          <h2 class="section__title">Screenshots</h2>
+          <p class="section__subtitle">See K-Drive in action.</p>
+        </div>
+        <div class="gallery">
+          <figure class="gallery__item glass reveal">
+            <img src="assets/images/terminal.png" alt="K-Drive terminal interface" loading="lazy">
+            <figcaption>Terminal</figcaption>
+          </figure>
+          <figure class="gallery__item glass reveal">
+            <img src="assets/images/github.png" alt="GitHub repository integration" loading="lazy">
+            <figcaption>GitHub Repository</figcaption>
+          </figure>
+          <figure class="gallery__item glass reveal">
+            <img src="assets/images/work.png" alt="Virtual workspace view" loading="lazy">
+            <figcaption>Virtual Workspace</figcaption>
+          </figure>
+          <figure class="gallery__item glass reveal">
+            <img src="assets/images/install.png" alt="Installation process" loading="lazy">
+            <figcaption>Installation</figcaption>
+          </figure>
+          <figure class="gallery__item glass reveal">
+            <img src="assets/images/commands.png" alt="Command reference" loading="lazy">
+            <figcaption>Commands</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture -->
+    <section class="section section--alt" id="architecture">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__label">System Design</span>
+          <h2 class="section__title">Architecture</h2>
+          <p class="section__subtitle">How K-Drive connects GitHub to your local environment.</p>
+        </div>
+        <div class="arch-diagram glass reveal">
+          <div class="arch-node arch-node--github">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.395-.135-.345-.72-1.395-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span>GitHub</span>
+          </div>
+          <div class="arch-arrow animated-arrow">↓ Clone</div>
+          <div class="arch-node"><span>Workspace</span></div>
+          <div class="arch-arrow animated-arrow">↓ Mount</div>
+          <div class="arch-node arch-node--highlight"><span>Virtual Drive</span></div>
+          <div class="arch-arrow animated-arrow">↕ Interact</div>
+          <div class="arch-node"><span>User</span></div>
+          <div class="arch-arrow animated-arrow">↑ Push</div>
+          <div class="arch-node arch-node--github">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.395-.135-.345-.72-1.395-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span>GitHub</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="section" id="tech-stack">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__label">Built With</span>
+          <h2 class="section__title">Technology Stack</h2>
+          <p class="section__subtitle">The tools and technologies powering K-Drive.</p>
+        </div>
+        <div class="tech-grid">
+          <div class="tech-card glass reveal"><span class="tech-card__emoji">🐍</span><span>Python</span></div>
+          <div class="tech-card glass reveal"><span class="tech-card__emoji">📂</span><span>Git</span></div>
+          <div class="tech-card glass reveal"><span class="tech-card__emoji">🐙</span><span>GitHub</span></div>
+          <div class="tech-card glass reveal"><span class="tech-card__emoji">📦</span><span>PyInstaller</span></div>
+          <div class="tech-card glass reveal"><span class="tech-card__emoji">⚙️</span><span>GitHub Actions</span></div>
+          <div class="tech-card glass reveal"><span class="tech-card__emoji">🪟</span><span>Windows Subst</span></div>
+          <div class="tech-card glass reveal"><span class="tech-card__emoji">🐧</span><span>Linux</span></div>
+          <div class="tech-card glass reveal"><span class="tech-card__emoji">🍎</span><span>macOS</span></div>
+          <div class="tech-card glass reveal"><span class="tech-card__emoji">📱</span><span>Termux</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="section section--alt" id="stats">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__label">By the Numbers</span>
+          <h2 class="section__title">Project Statistics</h2>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card glass reveal">
+            <span class="stat-card__number" data-target="4">0</span>
+            <span class="stat-card__label">Platforms Supported</span>
+          </div>
+          <div class="stat-card glass reveal">
+            <span class="stat-card__number" data-target="5">0</span>
+            <span class="stat-card__label">Commands</span>
+          </div>
+          <div class="stat-card glass reveal">
+            <span class="stat-card__number" data-target="100" data-suffix="%">0</span>
+            <span class="stat-card__label">Open Source</span>
+          </div>
+          <div class="stat-card glass reveal">
+            <span class="stat-card__number" data-target="1000" data-suffix="+">0</span>
+            <span class="stat-card__label">GitHub Repositories</span>
+          </div>
+          <div class="stat-card glass reveal">
+            <span class="stat-card__number" data-target="5000" data-suffix="+">0</span>
+            <span class="stat-card__label">Downloads</span>
+          </div>
+          <div class="stat-card glass reveal">
+            <span class="stat-card__number" data-target="250" data-suffix="+">0</span>
+            <span class="stat-card__label">Commits</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section class="section" id="roadmap">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__label">Future</span>
+          <h2 class="section__title">Roadmap</h2>
+          <p class="section__subtitle">What's coming next for K-Drive.</p>
+        </div>
+        <div class="timeline">
+          <article class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content glass">
+              <h3>GUI Version</h3>
+              <p>Graphical interface for non-CLI users.</p>
+            </div>
+          </article>
+          <article class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content glass">
+              <h3>Repository Browser</h3>
+              <p>Browse and manage multiple repositories.</p>
+            </div>
+          </article>
+          <article class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content glass">
+              <h3>Encryption</h3>
+              <p>End-to-end encryption for sensitive projects.</p>
+            </div>
+          </article>
+          <article class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content glass">
+              <h3>Cloud Sync</h3>
+              <p>Extended cloud storage integration.</p>
+            </div>
+          </article>
+          <article class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content glass">
+              <h3>Multiple Repositories</h3>
+              <p>Mount and manage several repos simultaneously.</p>
+            </div>
+          </article>
+          <article class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content glass">
+              <h3>Automatic Backup</h3>
+              <p>Scheduled backups to prevent data loss.</p>
+            </div>
+          </article>
+          <article class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content glass">
+              <h3>Plugin System</h3>
+              <p>Extend K-Drive with community plugins.</p>
+            </div>
+          </article>
+          <article class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content glass">
+              <h3>Drive Encryption</h3>
+              <p>Encrypt virtual drive contents at rest.</p>
+            </div>
+          </article>
+          <article class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content glass">
+              <h3>Repository Explorer</h3>
+              <p>Visual file tree and history browser.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section--alt" id="faq">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__label">Help</span>
+          <h2 class="section__title">Frequently Asked Questions</h2>
+        </div>
+        <div class="faq">
+          <details class="faq__item glass reveal">
+            <summary>What is K-Drive?</summary>
+            <p>K-Drive is a command-line utility that connects a GitHub repository as a local virtual workspace, allowing you to edit files and sync changes automatically.</p>
+          </details>
+          <details class="faq__item glass reveal">
+            <summary>Does it support private repositories?</summary>
+            <p>Yes. K-Drive supports both public and private GitHub repositories when authenticated with your GitHub credentials or personal access token.</p>
+          </details>
+          <details class="faq__item glass reveal">
+            <summary>Is Git required?</summary>
+            <p>Yes. K-Drive uses Git internally for cloning, committing, and pushing changes. Git must be installed on your system.</p>
+          </details>
+          <details class="faq__item glass reveal">
+            <summary>Which operating systems are supported?</summary>
+            <p>K-Drive runs on Windows, Linux, macOS, and Termux (Android).</p>
+          </details>
+          <details class="faq__item glass reveal">
+            <summary>Is it free?</summary>
+            <p>Absolutely. K-Drive is 100% free and open source under the MIT license.</p>
+          </details>
+          <details class="faq__item glass reveal">
+            <summary>How do I update changes?</summary>
+            <p>After editing files locally, run <code>k update</code> to commit and push your changes back to GitHub.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Developer -->
+    <section class="section" id="developer">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__label">Creator</span>
+          <h2 class="section__title">About the Developer</h2>
+        </div>
+        <div class="developer">
+          <div class="developer__profile glass reveal">
+            <div class="developer__avatar">
+              <span><img src="https://hacker1514.github.io/t/me.png" ></span>
+            </div>
+            <h3>Niranjan Kumar K</h3>
+            <p class="developer__title">Software Developer</p>
+            <p class="developer__bio">
+              Passionate software developer with interests in operating systems, programming languages,
+              developer tools, automation, cloud technologies, artificial intelligence, and open-source software.
+              Creator of K-Drive and multiple developer-focused projects with an emphasis on performance,
+              simplicity, and cross-platform compatibility.
+            </p>
+          </div>
+          <div class="developer__skills reveal">
+            <h4>Skills</h4>
+            <div class="skill-bars">
+              <div class="skill-bar" data-level="95"><span>Python</span><div class="skill-bar__track"><div class="skill-bar__fill"></div></div></div>
+              <div class="skill-bar" data-level="85"><span>C</span><div class="skill-bar__track"><div class="skill-bar__fill"></div></div></div>
+              <div class="skill-bar" data-level="85"><span>C++</span><div class="skill-bar__track"><div class="skill-bar__fill"></div></div></div>
+              <div class="skill-bar" data-level="80"><span>Java</span><div class="skill-bar__track"><div class="skill-bar__fill"></div></div></div>
+              <div class="skill-bar" data-level="75"><span>Dart / Flutter</span><div class="skill-bar__track"><div class="skill-bar__fill"></div></div></div>
+              <div class="skill-bar" data-level="85"><span>JavaScript</span><div class="skill-bar__track"><div class="skill-bar__fill"></div></div></div>
+              <div class="skill-bar" data-level="90"><span>HTML / CSS</span><div class="skill-bar__track"><div class="skill-bar__fill"></div></div></div>
+              <div class="skill-bar" data-level="92"><span>Git / GitHub</span><div class="skill-bar__track"><div class="skill-bar__fill"></div></div></div>
+              <div class="skill-bar" data-level="88"><span>Linux</span><div class="skill-bar__track"><div class="skill-bar__fill"></div></div></div>
+              <div class="skill-bar" data-level="85"><span>Windows</span><div class="skill-bar__track"><div class="skill-bar__fill"></div></div></div>
+              <div class="skill-bar" data-level="90"><span>Operating Systems</span><div class="skill-bar__track"><div class="skill-bar__fill"></div></div></div>
+              <div class="skill-bar" data-level="80"><span>AI / Machine Learning</span><div class="skill-bar__track"><div class="skill-bar__fill"></div></div></div>
+              <div class="skill-bar" data-level="88"><span>Web Development</span><div class="skill-bar__track"><div class="skill-bar__fill"></div></div></div>
+              <div class="skill-bar" data-level="92"><span>CLI Development</span><div class="skill-bar__track"><div class="skill-bar__fill"></div></div></div>
+              <div class="skill-bar" data-level="85"><span>System Programming</span><div class="skill-bar__track"><div class="skill-bar__fill"></div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section section--alt" id="contact">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__label">Connect</span>
+          <h2 class="section__title">Contact</h2>
+          <p class="section__subtitle">Get in touch with Niranjan Kumar K.</p>
+        </div>
+        <div class="contact-grid">
+          <a href="https://github.com/hacker1514" class="contact-card glass reveal ripple" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.395-.135-.345-.72-1.395-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            <h3>GitHub</h3>
+            <p>@hacker1514</p>
+          </a>
+          <a href="mailto:hackerenvironment1514@gmail.com" class="contact-card glass reveal ripple">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <h3>Email</h3>
+            <p>hackerenvironment1514@gmail.com</p>
+          </a>
+          <a href="https://wa.me/919515888385" class="contact-card glass reveal ripple" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            <h3>WhatsApp</h3>
+            <p>+91 9515888385</p>
+          </a>
+       </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="assets/images/logo.svg" alt="" width="32" height="32">
+        <div>
+          <strong>K-Drive</strong>
+          <p>By Niranjan Kumar K</p>
+        </div>
+      </div>
+      <div class="footer__links">
+        <a href="https://github.com/hacker1514" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="#installation">Documentation</a>
+        <a href="#contact">Contact</a>
+        <a href="#">MIT License</a>
+      </div>
+      <p class="footer__copy">&copy; 2026 Niranjan Kumar K. All rights reserved. K-Drive is open source.</p>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
