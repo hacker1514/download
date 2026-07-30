@@ -22,10 +22,10 @@ def activate():
 	system("start cmd /k cd /d K:\\")
 
 def update():
-	system(r"git -C  'C:\K_DRIVE' add -A ")
-	msg = input("Enter Your Update Message : ")
-	system(rf"git -C 'C:\K_DRIVE' commit -m '{msg}'")
-	system(r"git -C 'C:\K_DRIVE' push ")
+	system(r'git -C  "C:\K_DRIVE" add -A ')
+	msg = input('Enter Your Update Message : ")
+	system(rf'git -C "C:\K_DRIVE" commit -m "{msg}"')
+	system(r'git -C "C:\K_DRIVE" push ')
 
 def end():
 	system("subst K: /D")
