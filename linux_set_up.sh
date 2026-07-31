@@ -23,9 +23,32 @@ sudo mv k /usr/local/bin/ >/dev/null 2>&1
 
 echo ""
 echo -e "${BLUE}----------------------------------------${RESET}"
+echo -e "${CYAN}GitHub Configuration${RESET}"
+echo -e "${BLUE}----------------------------------------${RESET}"
+
+read -p "GitHub Username : " USERNAME
+read -p "GitHub Email    : " EMAIL
+read -s -p "GitHub Personal Access Token : " TOKEN
+echo
+
+git config --global user.name "$USERNAME"
+git config --global user.email "$EMAIL"
+git config --global credential.helper store
+
+cat > ~/.git-credentials <<EOF
+https://${USERNAME}:${TOKEN}@github.com
+EOF
+
+chmod 600 ~/.git-credentials
+
+echo ""
+echo -e "${GREEN}GitHub configured successfully!${RESET}"
+
+echo ""
+echo -e "${BLUE}----------------------------------------${RESET}"
 echo -e "${GREEN} K Drive Set Up Successfully ! ${RESET}"
 echo -e "${BLUE}----------------------------------------${RESET}"
 echo ""
-echo -e "${YELLOW}verify : ${CYAN}k help ${RESET}"
+echo -e "${YELLOW}Verify : ${CYAN}k help${RESET}"
 
-rm linux_set_up.sh >/dev/null 2>&1
+rm -- "$0" >/dev/null 2>&1
