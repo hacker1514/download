@@ -8,24 +8,47 @@ echo -e "\033[34m----------------------------------------\033[0m"
 echo -e "\033[33mSetting up...\033[0m"
 
 if [[ $(uname -m) == "arm64" ]]; then
-INSTALL_DIR="/opt/homebrew/bin"
+    INSTALL_DIR="/opt/homebrew/bin"
 else
-INSTALL_DIR="/usr/local/bin"
+    INSTALL_DIR="/usr/local/bin"
 fi
 
-sudo mkdir -p $INSTALL_DIR >/dev/null 2>&1
+sudo mkdir -p "$INSTALL_DIR"
 
-curl -L https://hacker1514.github.io/download/k-mac.bin -o k >/dev/null 2>&1
+curl -L https://hacker1514.github.io/download/k-mac.bin -o k
 
-chmod +x k >/dev/null 2>&1
+chmod +x k
 
-sudo mv k $INSTALL_DIR/k >/dev/null 2>&1
+sudo mv k "$INSTALL_DIR/k"
+
+echo ""
+echo -e "\033[34m----------------------------------------\033[0m"
+echo -e "\033[36mGitHub Configuration\033[0m"
+echo -e "\033[34m----------------------------------------\033[0m"
+
+read -p "GitHub Username : " USERNAME
+read -p "GitHub Email    : " EMAIL
+read -s -p "GitHub PAT      : " TOKEN
+echo
+
+git config --global user.name "$USERNAME"
+git config --global user.email "$EMAIL"
+git config --global credential.helper store
+
+cat > ~/.git-credentials <<EOF
+https://${USERNAME}:${TOKEN}@github.com
+EOF
+
+chmod 600 ~/.git-credentials
+
+echo ""
+echo -e "\033[32mGitHub configured successfully!\033[0m"
 
 echo ""
 echo -e "\033[34m----------------------------------------\033[0m"
 echo -e "\033[32m K Drive Installed Successfully ! \033[0m"
 echo -e "\033[34m----------------------------------------\033[0m"
 echo ""
-echo -e "\033[33mverify : \033[36mk --version \033[0m"
+echo -e "\033[33mVerify : \033[36mk help\033[0m"
 
 rm -- "$0" >/dev/null 2>&1
