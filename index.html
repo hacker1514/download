@@ -527,6 +527,89 @@
       </div>
     </section>
 
+    <!-- GitHub PAT Setup -->
+<section class="section" id="pat-setup">
+  <div class="container">
+
+    <div class="section__header reveal">
+      <span class="section__label">Authentication</span>
+      <h2 class="section__title">GitHub Personal Access Token</h2>
+      <p class="section__subtitle">
+        K-Drive uses a GitHub <strong>Personal Access Token (Classic)</strong>
+        for secure access to your repositories.
+      </p>
+    </div>
+
+    <div class="pat-grid">
+
+      <div class="pat-card glass reveal">
+        <div class="pat-number">1</div>
+        <h3>Open GitHub Settings</h3>
+        <p>
+          Go to:<br>
+          <code>Profile → Settings → Developer settings</code>
+        </p>
+      </div>
+
+      <div class="pat-card glass reveal">
+        <div class="pat-number">2</div>
+        <h3>Open Tokens (Classic)</h3>
+        <p>
+          Select:<br>
+          <code>Personal access tokens → Tokens (classic)</code>
+        </p>
+      </div>
+
+      <div class="pat-card glass reveal">
+        <div class="pat-number">3</div>
+        <h3>Generate Token</h3>
+        <p>
+          Click<br>
+          <strong>Generate new token (classic)</strong>
+        </p>
+      </div>
+
+      <div class="pat-card glass reveal">
+        <div class="pat-number">4</div>
+        <h3>Select Permissions</h3>
+        <p>
+          ✔ Note: <b>K Drive</b><br>
+          ✔ Scope: <code>repo</code>
+        </p>
+      </div>
+
+      <div class="pat-card glass reveal">
+        <div class="pat-number">5</div>
+        <h3>Copy Your Token</h3>
+        <p>
+          GitHub shows the token only once.
+          Copy it and keep it safe.
+        </p>
+      </div>
+
+      <div class="pat-card glass reveal">
+        <div class="pat-number">6</div>
+        <h3>Paste During Setup</h3>
+
+<pre><code>GitHub Username : hacker1514
+GitHub PAT      : ghp_xxxxxxxxxxxxx</code></pre>
+
+      </div>
+
+    </div>
+
+    <div class="glass pat-warning reveal">
+      <h3>🔒 Security Notice</h3>
+      <p>
+        Never share your Personal Access Token.
+        K-Drive stores it locally so you don't have to enter it again for every
+        <code>git push</code>.
+      </p>
+    </div>
+
+  </div>
+          </section>
+
     <!-- Technology Stack -->
     <section class="section" id="tech-stack">
       <div class="container">
